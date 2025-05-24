@@ -32,6 +32,16 @@ pub fn main() void {
     //const d: u19 = 4095;
 
     printBits(d);
+
+
+    u256_print();
+}
+
+fn u256_print() void {
+    // trying to
+    const Z = std.meta.Int(.unsigned, 256); // theoritically 65535 is max
+    const e: Z = 0xffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff_0000;
+    printBits(e);
 }
 
 
