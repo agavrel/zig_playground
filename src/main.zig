@@ -1,4 +1,9 @@
+
+
 const std = @import("std");
+
+// Declare external function from C
+extern fn hello_from_c() void;
 
 const Foo = packed struct {
     a: u3,
@@ -14,6 +19,8 @@ var foo = Foo {
 
 
 pub fn main() void {
+    hello_from_c();
+
     const Z = std.meta.Int(.unsigned, 1024); // theoritically 65535 is max
     var e: Z = 0xffff_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_ffff_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_ffff_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_ffff_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000;
 
